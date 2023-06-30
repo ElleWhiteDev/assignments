@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    <h1>Fill in the Madlib</h1>
+
+    <form id="madlib-form" action="{{ url_for('show_story') }}" method="POST" class="madlib-form">
+
+    <div class="input-group">
+    {% for placeholder in placeholders %}
+        <label for="{{ placeholder }}">{{ placeholder.capitalize() }}:</label>
+        <input type="text" id="{{ placeholder }}" name="{{ placeholder }}" class='madlib-input' required><br>
+    {% endfor %}
+    <input type="hidden" name="story_template" value="{{ story_template }}">
+    </div>
+    <div class='buttons-container'>
+        <button type="submit" class="madlib-button">Generate story</button>
+    </div>
+    </form>
+    
+    <div id="snackbar" class="hidden"></div>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{{ url_for('static', filename='validateForm.js') }}"></script>
+{% endblock %}

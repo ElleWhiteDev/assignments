@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %} User Detail Page {% endblock %}
+
+{% block content %} 
+
+<div class="user-profile">
+    <div class="user-image">
+        <img src="{{ user.image_url }}" alt="User Image">
+    </div>
+    <div class="user-details">
+        <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+        <div class="user-actions">
+            <button class="btn btn-primary" onclick="window.location.href='/users/{{user.id}}/edit'">Edit</button>
+            <form style="display: inline;" method="POST" action="/users/{{user.id}}/delete">
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+             <button class="btn btn-info" onclick="window.location.href='/'">Cancel</button>
+        </div>
+        <div class="user-posts">
+            <h2>Posts</h2>
+            <ul>
+                {% if posts %}
+                    {% for post in posts %}
+                    <li>
+                        <a class="post-link" href="/posts/{{post.id}}">{{post.title}}</a>
+                    </li>
+                    {% endfor %}
+                {% else %}
+                    <li>No posts yet.</li>
+                {% endif %}
+            </ul>
+            <div class="btn-conatiner">
+                <button class="btn btn-primary" onclick="window.location.href='/users/{{user.id}}/posts/new'">Add Post</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

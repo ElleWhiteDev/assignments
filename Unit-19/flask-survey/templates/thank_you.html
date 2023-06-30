@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+Thank You
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>Thank you for taking the survey!</h1>
+        <p> Your answers have been recorded.</p>
+        <p><a href="/">Take the survey again</a></p>        
+
+        <div class="question-container">
+        {% for question in satisfaction_survey.questions %}
+                <p class="question-title">{{ question.question }}</p>
+                <p class="question-answer">Your answer: {{ session["responses"][loop.index0] }}</p>
+        {% endfor %}
+        </div>
+    </div>
+
+    <div>
+        <img src="https://media.giphy.com/media/3oEdva9BUHPIs2SkGk/giphy.gif" alt="A pickle walking, tipping his hat saying 'Thanks!'">
+    </div>
+{% endblock %}

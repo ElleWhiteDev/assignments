@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    <h1>Create Your Own Madlib</h1>
+    <form action="{{ url_for('create_story') }}" method="POST" class="madlib-custom-form">
+      <div class="madlib-custom-input">
+        <label for="story_template">Story Template:</label><br>
+        <textarea id="story_template" name="story_template" rows="10" cols="50" required placeholder="Enter your story template with placeholders in curly braces, like {noun}, {adjective}, etc."></textarea><br>
+      </div>
+        <button type="submit" class="madlib-custom-button">Create Madlib</button>
+    </form>
+{% endblock %}

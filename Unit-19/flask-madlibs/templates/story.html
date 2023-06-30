@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Madlibs Adventures{% endblock%}
+
+{% block content %}
+    <h1>Your Mad Libs Story</h1>
+    <div class="madlib-story">
+        <p>{{ story }}</p>
+    </div>
+    <a href="{{ url_for('index') }}">Create Another Story</a>
+{% endblock %}

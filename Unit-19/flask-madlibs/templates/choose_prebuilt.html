@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+    <h1>Choose a Prebuilt Story</h1>
+    <form action="/create_prebuilt_story" method="post">
+        <label for="prebuilt_story">Select a story:</label>
+        <select name="prebuilt_story" id="prebuilt_story">
+            {% for story_id in prebuilt_stories.keys() %}
+                <option value="{{ story_id }}">{{ story_id }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Choose">
+    </form>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}Choose Your Own Adventure{% endblock %}
+
+{% block content %}
+    <h1>Which would you like?</h1>
+    <button onclick="location.href='{{ url_for('create_your_own') }}'" class="madlib-custom-button">Create your own Madlib</button>
+    <button onclick="location.href='{{ url_for('choose_prebuilt') }}'" class="madlib-custom-button">Choose a Prebuilt Madlib</button>
+{% endblock %}
